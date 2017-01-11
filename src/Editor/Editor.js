@@ -1,13 +1,13 @@
 
 import React from 'react';
-import { EditorState, RichUtils, convertFromRaw } from 'draft-js';
+import { EditorState, RichUtils, convertFromRaw, convertToRaw, } from 'draft-js';
 import _ from 'lodash'
 import Editor from 'draft-js-plugins-editor';
 import esp from 'esprima-fb'
 import { BlockStyleControls, InlineStyleControls } from './RichStyles'
 import PrismDecorator from 'draft-js-prism'
 import defaultContent from './defaultContent'
-// import io from 'socket.io-client'
+import io from 'socket.io-client'
 
 import 'prismjs/themes/prism-tomorrow.css'
 
@@ -32,14 +32,14 @@ const styleMap = {
 class TextEditor extends React.Component {
   constructor(props) {
     super(props);
-    // this.socket = io('http://localhost:3001')
+    this.socket = io('http://localhost:3001')
     this.focus = () => this.refs.editor.focus()
     let decorator = PrismDecorator()
     this.state = {
       editorState: EditorState.createWithContent(defaultContent(), decorator)
     };
 
-    // this.socket.on('new-content-state', this.updateEditorFromIO)
+    this.socket.on('new-content-state', this.updateEditorFromIO)
 
   }
 
@@ -53,10 +53,10 @@ class TextEditor extends React.Component {
   }
 
   onChange = (editorState) => {
-    // this.socket.emit('push-content-state', {
-    //   contentState: convertToRaw(editorState.getCurrentContent()),
-    //   changeType: editorState.getLastChangeType()
-    // })
+    this.socket.emit('push-content-state', {
+      contentState: convertToRaw(editorState.getCurrentContent()),
+      changeType: editorState.getLastChangeType()
+    })
     let content = editorState.getCurrentContent();
     console.dir(content.getFirstBlock().getCharacterList());
     let plainText = content.getPlainText();
