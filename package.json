@@ -57,8 +57,10 @@
     "esprima-fb": "^15001.1001.0-dev-harmony-fb",
     "immutable": "^3.8.1",
     "lodash": "^4.17.4",
+    "node-sass": "^4.2.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
+    "sass-loader": "^4.1.1",
     "socket.io-client": "^1.7.2"
   },
   "scripts": {
