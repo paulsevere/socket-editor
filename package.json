@@ -1,0 +1,29 @@
+{
+  "name": "socket-editor",
+  "version": "0.1.0",
+  "private": true,
+  "devDependencies": {
+    "react-scripts": "0.8.5"
+  },
+  "dependencies": {
+    "draft-js": "^0.9.1",
+    "draft-js-alignment-plugin": "^2.0.0-beta1",
+    "draft-js-code": "^0.2.0",
+    "draft-js-focus-plugin": "^2.0.0-beta1",
+    "draft-js-plugins-editor": "^2.0.0-beta1",
+    "draft-js-prism": "^1.0.3",
+    "draft-js-side-toolbar-plugin": "^2.0.0-beta9",
+    "esprima-fb": "^15001.1001.0-dev-harmony-fb",
+    "immutable": "^3.8.1",
+    "lodash": "^4.17.4",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "socket.io-client": "^1.7.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
