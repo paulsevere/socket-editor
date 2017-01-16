@@ -6,10 +6,16 @@ export default () => convertFromRaw({
 
     {
       type: 'code-block',
-      text: `var message = "This is awesome!";
-        function radical(){
-          console.log("coool")
-        }
+      text: `function handleRequest(request, response){
+    try {
+        //log the request on console
+        console.log(request.url);
+        //Disptach
+        dispatcher.dispatch(request, response);
+    } catch(err) {
+        console.log(err);
+    }
+}
       `
     }
   ]
